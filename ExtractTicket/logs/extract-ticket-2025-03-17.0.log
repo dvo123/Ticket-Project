@@ -1,0 +1,324 @@
+2025-03-17 08:45:48 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 13012 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 08:45:48 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 08:45:48 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 08:45:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 08:45:50 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 08:45:50 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 08:45:50 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 08:45:50 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 08:45:50 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2060 ms
+2025-03-17 08:45:51 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 08:45:51 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 08:45:51 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 4.106 seconds (process running for 4.682)
+2025-03-17 08:46:23 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 08:46:23 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 08:46:23 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-17 08:46:23 [http-nio-8080-exec-3] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 08:46:23 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-17 08:46:24 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 08:46:24 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47b1d050
+2025-03-17 08:46:24 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 08:46:24 [http-nio-8080-exec-3] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 08:46:24 [http-nio-8080-exec-3] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 08:46:25 [http-nio-8080-exec-3] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 08:46:25 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Retrieved 15 tickets from database
+2025-03-17 08:46:26 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-17 08:46:26 [http-nio-8080-exec-3] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 09:29:40 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 6608 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 09:29:40 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 09:29:40 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 09:29:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 09:29:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 09:29:42 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 09:29:42 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 09:29:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 09:29:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2075 ms
+2025-03-17 09:29:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 09:29:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 09:29:43 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.974 seconds (process running for 4.508)
+2025-03-17 09:29:49 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 09:29:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 09:29:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-03-17 09:29:49 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 09:29:49 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 09:29:49 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 09:29:50 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d738039
+2025-03-17 09:29:50 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 09:29:50 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 09:29:50 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 09:29:50 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 09:29:50 [http-nio-8080-exec-1] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 09:29:52 [http-nio-8080-exec-1] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 09:47:46 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 14264 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 09:47:46 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 09:47:46 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 09:47:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 09:47:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 09:47:48 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 09:47:48 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 09:47:48 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 09:47:48 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2016 ms
+2025-03-17 09:47:49 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 09:47:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 09:47:49 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 4.015 seconds (process running for 4.552)
+2025-03-17 09:48:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 09:48:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 09:48:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-17 09:48:44 [http-nio-8080-exec-6] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 09:48:44 [http-nio-8080-exec-6] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 09:48:44 [http-nio-8080-exec-6] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 09:48:44 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 09:48:45 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d025710
+2025-03-17 09:48:45 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 09:48:45 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 09:48:45 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 09:48:45 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 09:48:45 [http-nio-8080-exec-6] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 09:48:46 [http-nio-8080-exec-6] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 09:49:24 [http-nio-8080-exec-8] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 09:49:24 [http-nio-8080-exec-8] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 09:49:24 [http-nio-8080-exec-8] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 09:49:24 [http-nio-8080-exec-8] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 09:49:24 [http-nio-8080-exec-8] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 09:49:24 [http-nio-8080-exec-8] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 09:49:24 [http-nio-8080-exec-8] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 09:49:24 [http-nio-8080-exec-8] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 09:49:40 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 09:49:40 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 09:49:40 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 09:49:40 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 09:49:40 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 09:49:40 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 09:49:40 [http-nio-8080-exec-2] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 09:49:40 [http-nio-8080-exec-2] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:08:57 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 9860 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 10:08:57 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 10:08:57 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 10:08:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 10:08:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:08:59 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 10:08:59 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 10:08:59 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 10:08:59 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1896 ms
+2025-03-17 10:09:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:09:00 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-17 10:09:00 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-17 10:09:00 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-03-17 10:09:10 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 8780 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 10:09:10 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 10:09:10 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 10:09:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 10:09:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:09:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 10:09:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 10:09:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 10:09:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2068 ms
+2025-03-17 10:09:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:09:13 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-17 10:09:13 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-17 10:09:13 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-03-17 10:09:34 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 10484 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 10:09:34 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 10:09:34 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 10:09:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 10:09:36 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:09:36 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 10:09:36 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 10:09:36 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 10:09:36 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1947 ms
+2025-03-17 10:09:37 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:09:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 10:09:37 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.787 seconds (process running for 4.318)
+2025-03-17 10:10:01 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 10:10:01 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 10:10:01 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-03-17 10:10:01 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 10:10:01 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 10:10:02 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@102a6ddb
+2025-03-17 10:10:02 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 10:10:02 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:10:02 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:10:02 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:10:17 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 10:10:17 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:10:17 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:10:17 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:10:17 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:10:17 [http-nio-8080-exec-2] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:10:18 [http-nio-8080-exec-2] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:10:18 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 10:10:18 [http-nio-8080-exec-3] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:10:18 [http-nio-8080-exec-3] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:10:18 [http-nio-8080-exec-3] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:10:31 [http-nio-8080-exec-4] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 10:10:31 [http-nio-8080-exec-4] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:10:31 [http-nio-8080-exec-4] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:10:31 [http-nio-8080-exec-4] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:10:31 [http-nio-8080-exec-4] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:10:31 [http-nio-8080-exec-4] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:10:31 [http-nio-8080-exec-4] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:10:43 [http-nio-8080-exec-6] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 10:10:43 [http-nio-8080-exec-6] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:10:43 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:10:43 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:10:43 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:10:43 [http-nio-8080-exec-6] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:10:43 [http-nio-8080-exec-6] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:10:43 [http-nio-8080-exec-7] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 10:10:43 [http-nio-8080-exec-7] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:10:43 [http-nio-8080-exec-7] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:10:43 [http-nio-8080-exec-7] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:14:38 [http-nio-8080-exec-10] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 10:14:38 [http-nio-8080-exec-10] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:14:38 [http-nio-8080-exec-10] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:14:38 [http-nio-8080-exec-10] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:14:38 [http-nio-8080-exec-10] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:14:38 [http-nio-8080-exec-10] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:14:38 [http-nio-8080-exec-10] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:14:38 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 10:14:38 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:14:38 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:14:38 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:15:59 [http-nio-8080-exec-4] INFO  c.e.c.TicketExportController - Received API request to export tickets
+2025-03-17 10:15:59 [http-nio-8080-exec-4] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:15:59 [http-nio-8080-exec-4] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:15:59 [http-nio-8080-exec-4] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:15:59 [http-nio-8080-exec-4] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:15:59 [http-nio-8080-exec-4] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:16:00 [http-nio-8080-exec-4] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:30:33 [http-nio-8080-exec-6] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 10:30:33 [http-nio-8080-exec-6] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:30:33 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:30:33 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:30:33 [http-nio-8080-exec-6] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:30:33 [http-nio-8080-exec-6] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:30:33 [http-nio-8080-exec-6] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 10:30:33 [http-nio-8080-exec-7] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 10:30:33 [http-nio-8080-exec-7] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:30:33 [http-nio-8080-exec-7] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:30:33 [http-nio-8080-exec-7] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:36:27 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 12944 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 10:36:27 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 10:36:27 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 10:36:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 10:36:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:36:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 10:36:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 10:36:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 10:36:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2049 ms
+2025-03-17 10:36:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 10:36:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 10:36:30 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.886 seconds (process running for 4.426)
+2025-03-17 10:36:41 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 10:36:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 10:36:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-17 10:36:41 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 10:36:41 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 10:36:41 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c5df44a
+2025-03-17 10:36:41 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 10:36:41 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:36:41 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:36:41 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:36:46 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received web request to export tickets
+2025-03-17 10:36:46 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Starting async ticket export process
+2025-03-17 10:36:46 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 10:36:46 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 10:36:46 [http-nio-8080-exec-2] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 10:36:46 [http-nio-8080-exec-2] DEBUG com.example.util.ExcelGenerator - Creating Excel workbook with 15 tickets
+2025-03-17 10:36:47 [http-nio-8080-exec-2] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-17 13:43:27 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 9900 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 13:43:27 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 13:43:27 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 13:43:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 13:43:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 13:43:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 13:43:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 13:43:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 13:43:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2457 ms
+2025-03-17 13:43:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 13:43:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 13:43:30 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 4.766 seconds (process running for 5.504)
+2025-03-17 13:43:37 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 13:43:37 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 13:43:37 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-17 13:43:37 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 13:43:37 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 13:43:38 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@dad6a07
+2025-03-17 13:43:38 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 13:43:38 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 13:43:38 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 13:43:38 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 15:01:44 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 1192 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 15:01:44 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 15:01:44 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 15:01:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 15:01:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 15:01:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 15:01:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 15:01:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 15:01:47 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2241 ms
+2025-03-17 15:01:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 15:01:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 15:01:48 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 4.159 seconds (process running for 4.81)
+2025-03-17 15:01:56 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 15:01:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 15:01:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-17 15:01:56 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 15:01:56 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 15:01:56 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c5df44a
+2025-03-17 15:01:56 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 15:01:56 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 15:01:56 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 15:01:56 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15
+2025-03-17 16:05:45 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 16092 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-17 16:05:45 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-17 16:05:45 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-17 16:05:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-17 16:05:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-17 16:05:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-17 16:05:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-17 16:05:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-17 16:05:47 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2102 ms
+2025-03-17 16:05:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-17 16:05:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-17 16:05:48 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 4.015 seconds (process running for 4.565)
+2025-03-17 16:05:54 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-17 16:05:54 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-17 16:05:54 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-17 16:05:54 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Fetching tickets for preview
+2025-03-17 16:05:54 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-17 16:05:54 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c5df44a
+2025-03-17 16:05:54 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-17 16:05:54 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==>  Preparing: SELECT ID, TITLE, CREATED_USER AS createdUsersUsername, SUBSTRING_INDEX( SUBSTRING_INDEX( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[5].editableAttachmentBlock')), '<dd class="attachment-author">', -1 ), '</dd>', 1) AS createdUser, CREATED_TIME AS createTime, MODIFIED_TIME AS finishedTime, LOCATION_ID AS locationId, STATUS, CONCAT( JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].value')), ' - ', JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[0].text'))) AS approver, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[1].value')) AS requestDescription, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[2].value')) AS benefitReason, JSON_UNQUOTE(JSON_EXTRACT(DETAIL, '$.individual[3].value')) AS impactedApplications FROM tickets ORDER BY ID DESC
+2025-03-17 16:05:54 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - ==> Parameters: 
+2025-03-17 16:05:54 [http-nio-8080-exec-1] DEBUG c.e.m.TicketMapper.findAllTickets - <==      Total: 15

@@ -1,0 +1,437 @@
+2025-03-14 10:00:07 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 10980 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 10:00:07 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 10:00:07 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 10:00:10 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 10:00:10 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 10:00:10 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 10:00:10 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 10:00:10 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 10:00:10 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2816 ms
+2025-03-14 10:00:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 10:00:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 10:00:11 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 6.422 seconds (process running for 7.786)
+2025-03-14 10:00:17 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 10:00:17 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 10:00:17 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-03-14 10:00:17 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 10:00:17 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 10:00:17 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 10:00:19 [http-nio-8080-exec-2] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.example.service.TicketExportService.exportTicketsToExcel(TicketExportService.java:62)
+	at com.example.controller.TicketExportController.exportTickets(TicketExportController.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-03-14 10:00:19 [http-nio-8080-exec-2] ERROR c.e.service.TicketExportService - SQL error during ticket export
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.example.service.TicketExportService.exportTicketsToExcel(TicketExportService.java:62)
+	at com.example.controller.TicketExportController.exportTickets(TicketExportController.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-03-14 10:00:19 [http-nio-8080-exec-2] ERROR c.e.c.TicketExportController - Database access error while exporting tickets
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at com.example.service.TicketExportService.exportTicketsToExcel(TicketExportService.java:62)
+	at com.example.controller.TicketExportController.exportTickets(TicketExportController.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-03-14 10:02:36 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 11408 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 10:02:36 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 10:02:36 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 10:02:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 10:02:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 10:02:39 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 10:02:39 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 10:02:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 10:02:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2748 ms
+2025-03-14 10:02:40 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 10:02:40 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 10:02:40 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 6.148 seconds (process running for 7.162)
+2025-03-14 10:02:58 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 10:02:58 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 10:02:58 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-14 10:02:58 [http-nio-8080-exec-3] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 10:02:58 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 10:02:58 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 10:02:59 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2dc5c432
+2025-03-14 10:02:59 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 10:03:00 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 10:03:01 [http-nio-8080-exec-3] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 10:03:01 [http-nio-8080-exec-3] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 10:03:01 [http-nio-8080-exec-3] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 10:08:09 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 9712 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 10:08:09 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 10:08:09 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 10:08:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 10:08:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 10:08:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 10:08:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 10:08:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 10:08:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2901 ms
+2025-03-14 10:08:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 10:08:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 10:08:13 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 7.135 seconds (process running for 8.089)
+2025-03-14 10:08:21 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 10:08:21 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 10:08:21 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-03-14 10:08:21 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 10:08:21 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 10:08:21 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 10:08:22 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75ed4441
+2025-03-14 10:08:22 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 10:08:24 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 10:08:24 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 10:08:25 [http-nio-8080-exec-2] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 10:08:25 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 13:41:19 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 1464 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 13:41:19 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 13:41:19 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 13:41:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 13:41:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 13:41:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 13:41:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 13:41:22 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 13:41:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2368 ms
+2025-03-14 13:41:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 13:41:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 13:41:22 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 4.224 seconds (process running for 4.785)
+2025-03-14 13:44:54 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 7776 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 13:44:54 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 13:44:54 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 13:44:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 13:44:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 13:44:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 13:44:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 13:44:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 13:44:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1831 ms
+2025-03-14 13:44:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 13:44:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 13:44:57 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.55 seconds (process running for 4.137)
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 13:45:42 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e5c3ad3
+2025-03-14 13:45:42 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 13:45:43 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 13:45:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 13:45:44 [http-nio-8080-exec-1] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 13:45:44 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 14:08:19 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 15100 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 14:08:19 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 14:08:19 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 14:08:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 14:08:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:08:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 14:08:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 14:08:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 14:08:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2136 ms
+2025-03-14 14:08:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:08:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 14:08:22 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.779 seconds (process running for 4.363)
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 14:08:30 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7992e94a
+2025-03-14 14:08:30 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 14:08:31 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 14:08:32 [http-nio-8080-exec-2] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 14:08:32 [http-nio-8080-exec-2] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 14:08:32 [http-nio-8080-exec-2] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 14:16:07 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 8068 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 14:16:07 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 14:16:07 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 14:16:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 14:16:09 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:16:09 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 14:16:09 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 14:16:09 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 14:16:09 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2158 ms
+2025-03-14 14:16:10 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:16:10 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 14:16:10 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.745 seconds (process running for 4.343)
+2025-03-14 14:16:13 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 14:16:13 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 14:16:13 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-14 14:16:13 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 14:16:13 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 14:16:13 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 14:16:14 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2997aaa9
+2025-03-14 14:16:14 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 14:16:15 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 14:16:15 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 14:16:15 [http-nio-8080-exec-1] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 14:16:15 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 14:38:24 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 1508 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 14:38:24 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 14:38:24 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 14:38:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 14:38:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:38:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 14:38:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 14:38:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 14:38:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1877 ms
+2025-03-14 14:38:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:38:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 14:38:26 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.493 seconds (process running for 3.986)
+2025-03-14 14:38:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 14:38:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 14:38:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-14 14:38:34 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 14:38:34 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 14:38:34 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 14:38:35 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21eba365
+2025-03-14 14:38:35 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 14:38:35 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 14:38:36 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 14:38:36 [http-nio-8080-exec-1] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 14:38:36 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 16:33:33 [main] INFO  c.example.TicketExporterApplication - Starting TicketExporterApplication using Java 17.0.14 with PID 4568 (C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\target\classes started by David Vo in C:\Users\David Vo\Desktop\TicketProject\ExtractTicket)
+2025-03-14 16:33:33 [main] DEBUG c.example.TicketExporterApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-14 16:33:33 [main] INFO  c.example.TicketExporterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 16:33:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 16:33:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 16:33:35 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 16:33:35 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-14 16:33:35 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 16:33:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2060 ms
+2025-03-14 16:33:36 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 16:33:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-14 16:33:36 [main] INFO  c.example.TicketExporterApplication - Started TicketExporterApplication in 3.733 seconds (process running for 4.32)
+2025-03-14 16:33:42 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-14 16:33:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-14 16:33:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-14 16:33:42 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Received request to export tickets
+2025-03-14 16:33:42 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Starting ticket export process
+2025-03-14 16:33:42 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 16:33:43 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@20222788
+2025-03-14 16:33:43 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Connected to database and executing query
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: [Kết nối&Portal]Chữ ký điện tử bị invalid
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: eContract trên Kết nối và Portal khi validate chữ ký điện tử đều bị invaild
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Remove logic check HSBC's referral license
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: HSBC agent can not pass "Lựa chọn sản phẩm" step
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Add 3PAY product (3P5 & 3P10) in Policy replacement rule
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Add 3PAY product (3P5 & 3P10) in Policy replacement rule
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Gỡ license HIRB cho 07 đại lý như file đính kèm trên IPOS2 10/04/2024
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Đây là yêu cầu từ Exco của Công ty theo memo 072 (đính kèm). các bạn IT vui lòng hỗ trợ đúng thời gian yêu cầu là ngày : 10/04/2024
+Đây là yêu cầu từ Ban Giám Đốc Công Ty và theo memo 072 ngày 09/06/2023
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: [DMS] Upgrade package_Container Vulns - DMS
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: [DMS] Upgrade package_Container Vulns - DMS
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Tạo git cho report mới Vitality-Activity-Management
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Tạo git cho report mới Vitality-Activity-Management
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: [Fix bug][IOS Phone] Crash app when "Đánh giá cuộc gọi"/"Đánh giá cuộc hẹn" at iLead App IOS
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Current : Chỉ cài IONE - iLead riêng thì không bị  crash app, nhưng khi cài iONE - iLead - iPOS thì bị crash app ilead khi đánh giá cuộc gọi
+--> Fix bug để IS cài 3 app trên cùng device ko bj crash app
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Family Health proposition | Sale system enhancement per MOF comment
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: This ticket is for implementing the sale system modification for Family Health Proposition, per MOF comment:
+- Remove Group cashback 
+- Update Vitality bonus illustration
+- Update SIS wording
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: AIA+ Backlog | Tickets release 25Mar2024
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: SA-10727: [SA][App/Web][P604] New Noti (via AIA+ and ZNS/SMS) included amount for completed case 
+SA-10828: [PWV] Improve performance
+SA-10880: [SA][P603] [Web/App] Tracking Event Customer request P603 on AIA+
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Degree 13 for iLead app
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Add new flow to distinguish between customers who have confirmed consent and have not confirmed it
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Bổ sung field ORIGINALRECRUITER & ORIGINALADGID về pool2 - dbo.ams_agent &  dbo.agentlog
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Bổ sung field ORIGINALRECRUITER & ORIGINALADGID về pool2 - dbo.ams_agent & dbo.agentlog
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: [Payment Gateway] Fix Critical Container Vulns
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Fix các bugs Critical/High trên container của Payment gateway
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: Tạo GIT project cho EWS Dashboard
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Tạo GIT project cho EWS Dashboard tên: AD-BQ-EWS-Report
+Phân quyền cho user: vcop972
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: update content cho pending code ở master data D365
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: update content cho pending code NL01 ở master data D365
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw TITLE from DB: [E-invoice-wellness] Fix Critical Container Vulns
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Raw Request Description from DB: Fix các bugs Critical/High trên container của E-invoice Wellness
+2025-03-14 16:33:44 [http-nio-8080-exec-1] DEBUG c.e.service.TicketExportService - Populated 15 rows in Excel sheet
+2025-03-14 16:33:44 [http-nio-8080-exec-1] INFO  c.e.service.TicketExportService - Excel file written to C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
+2025-03-14 16:33:44 [http-nio-8080-exec-1] INFO  c.e.c.TicketExportController - Successfully generated output.xlsx at C:\Users\David Vo\Desktop\TicketProject\ExtractTicket\.\output.xlsx
